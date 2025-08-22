@@ -1,11 +1,33 @@
 import sys, asyncio, csv, random, re, traceback, threading, queue, os, time
 from typing import List, Callable, Dict, Any
 import streamlit as st
+import subprocess
 from playwright.async_api import async_playwright, TimeoutError as PlaywrightTimeoutError
 try:
     import pandas as pd
 except Exception:
     pd = None
+
+
+
+def ensure_playwright():
+    """Download Chromium once on Streamlit Cloud (no manual shell needed)."""
+    cache_dir = os.path.expanduser("~/.cache/ms-playwright")
+    # If a chromium folder is already in the cache, we’re good.
+    if os.path.isdir(cache_dir) and any(
+        name.startswith("chromium") for name in os.listdir(cache_dir)
+    ):
+        return
+    # Otherwise install chromium only (fastest).
+    subprocess.run(
+        ["python", "-m", "playwright", "install", "chromium"],
+        check=True
+    )
+
+# Call it immediately so browsers are present before create_context() launches Chromium
+ensure_playwright()
+
+
 # =========================
 # Config
 # =========================
@@ -601,3 +623,4 @@ if st.session_state["running"]:
     time.sleep(UI_REFRESH_SECS)
     try: st.rerun()
     except Exception: st.experimental_rerun()
+
