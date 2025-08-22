@@ -646,4 +646,22 @@ if st.session_state["running"]:
     try: st.rerun()
     except Exception: st.experimental_rerun()
 
+st.markdown(
+    """
+    <style>
+    .footer {
+        margin-top: 25px;
+        padding: 10px;
+        text-align: center;
+        font-size: 0.9rem;
+        color: #6B7280; /* soft gray */
+    }
+    </style>
+    <div class="footer">
+        Developed by <b>Nafay Ur Rehman</b>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
 
