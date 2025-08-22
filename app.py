@@ -8,24 +8,46 @@ try:
 except Exception:
     pd = None
 
-
+# Ensure Playwright browsers (Chromium) are installed once
+import subprocess, os, sys, streamlit as st
 
 def ensure_playwright():
-    """Download Chromium once on Streamlit Cloud (no manual shell needed)."""
     cache_dir = os.path.expanduser("~/.cache/ms-playwright")
-    # If a chromium folder is already in the cache, we’re good.
-    if os.path.isdir(cache_dir) and any(
-        name.startswith("chromium") for name in os.listdir(cache_dir)
-    ):
-        return
-    # Otherwise install chromium only (fastest).
-    subprocess.run(
-        ["python", "-m", "playwright", "install", "chromium"],
-        check=True
-    )
+    # already have a chromium* folder?
+    if os.path.isdir(cache_dir):
+        try:
+            if any(name.startswith("chromium") for name in os.listdir(cache_dir)):
+                return
+        except Exception:
+            pass
 
-# Call it immediately so browsers are present before create_context() launches Chromium
+    # Try installing Chromium with the current venv's Python
+    try:
+        proc = subprocess.run(
+            [sys.executable, "-m", "playwright", "install", "chromium"],
+            capture_output=True,
+            text=True,
+            check=True,
+        )
+        # Optional: surface stdout for debugging
+        if proc.stdout:
+            st.info("Playwright: " + proc.stdout.splitlines()[-1][:200])
+    except subprocess.CalledProcessError as e:
+        # Show a concise, safe error + hint about packages.txt
+        st.error(
+            "❌ Failed to install Playwright Chromium. "
+            "On Streamlit Cloud you must provide system packages via packages.txt. "
+            "Make sure your repo contains a packages.txt with Chromium deps (see docs)."
+        )
+        # Show last few lines of stderr (Streamlit may redact full output)
+        tail = (e.stderr or "").strip().splitlines()[-10:]
+        if tail:
+            st.code("\n".join(tail) or "no stderr")
+        # Re-raise so the run stops clearly
+        raise
+
 ensure_playwright()
+
 
 
 # =========================
@@ -623,4 +645,5 @@ if st.session_state["running"]:
     time.sleep(UI_REFRESH_SECS)
     try: st.rerun()
     except Exception: st.experimental_rerun()
+
 
