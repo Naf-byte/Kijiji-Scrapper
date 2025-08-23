@@ -437,9 +437,43 @@ with st.container():
     st.markdown("</div>", unsafe_allow_html=True)
 
 # --- Sidebar (controls) ---
+# with st.sidebar:
+#     st.markdown("### 🔍 Search")
+#     url = st.text_input("Search URL", value=DEFAULT_URL, help="Paste a Kijiji results URL.")
+#     max_pages = st.number_input("Max pages", min_value=1, max_value=200, value=45, step=1)
+#     csv_name = st.text_input("CSV file name", value=DEFAULT_CSV)
+
+#     st.markdown("---")
+#     c1, c2 = st.columns(2)
+#     btn_start = c1.button("Start", type="primary", use_container_width=True)
+#     btn_stop  = c2.button("Stop", use_container_width=True)
+
+#     st.markdown("---")
+#     st.caption("While running, the UI auto-updates every "
+#                f"**{UI_REFRESH_SECS}s**. You can download partial CSV any time.")
+
+# --- Sidebar (controls) ---
 with st.sidebar:
     st.markdown("### 🔍 Search")
-    url = st.text_input("Search URL", value=DEFAULT_URL, help="Paste a Kijiji results URL.")
+
+    # category options
+    category_options = {
+        "Cars & Trucks": "https://www.kijiji.ca/b-cars-trucks/canada/c174l0?for-sale-by=ownr&view=list",
+        "Motorcycles": "https://www.kijiji.ca/b-motorcycles/canada/c30l0?for-sale-by=ownr&view=list",
+        "Heavy Equipment": "https://www.kijiji.ca/b-heavy-equipment/canada/c301l0?for-sale-by=ownr&view=list"
+    }
+
+    # dropdown instead of free text URL
+    selected_category = st.selectbox(
+        "Select Category",
+        options=list(category_options.keys()),
+        index=0
+    )
+
+    # URL based on selection
+    url = category_options[selected_category]
+
+    # user can still set pages & CSV file
     max_pages = st.number_input("Max pages", min_value=1, max_value=200, value=45, step=1)
     csv_name = st.text_input("CSV file name", value=DEFAULT_CSV)
 
@@ -663,5 +697,6 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
 
 
