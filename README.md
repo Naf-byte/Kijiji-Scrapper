@@ -46,15 +46,15 @@ cd kijiji-scrapper
 
 ### 2. Install dependencies
 
-Python 3.9+ is recommended.
+**Python 3.9+ is recommended.**
 
 (Optional) create and activate a virtual environment:
-```bash
+
 python -m venv .venv
 source .venv/bin/activate  # Linux/Mac
 .venv\Scripts\activate     # Windows
 
-## install Python requirements
+**install Python requirements.**
 pip install -r requirements.txt
 
 Install Playwright browsers:
@@ -112,6 +112,7 @@ Visits each listing page to extract details such as title, price, seller info, a
 Saves results incrementally into a CSV file (flushes every 10 rows).
 
 Updates the Streamlit UI with logs, KPIs, and CSV previews.
+
 
 
 
