@@ -74,11 +74,9 @@ Deployment (Streamlit Cloud)
 
 This repository is configured for Streamlit Community Cloud:
 
-- ##packages.txt provides required Chromium system libraries.
-
-- ##requirements.txt lists Python dependencies.
-
-- ##streamlit/config.toml contains UI theme settings.
+- **packages.txt** provides required Chromium system libraries.
+- **requirements.txt** lists Python dependencies.
+- **streamlit/config.toml** contains UI theme settings.
 
 Connect this repository to Streamlit Cloud and deploy. Chromium will install automatically on first run.
 
@@ -112,6 +110,7 @@ Visits each listing page to extract details such as title, price, seller info, a
 Saves results incrementally into a CSV file (flushes every 10 rows).
 
 Updates the Streamlit UI with logs, KPIs, and CSV previews.
+
 
 
 
