@@ -66,6 +66,7 @@ cd kijiji-scrapper
     libcairo2 libx11-6 libx11-xcb1 libxcb1 libxext6 libxss1 libcups2 \
     libdbus-1-3 libatspi2.0-0
 
+---
 ### 3. Run locally
 streamlit run app.py
 
@@ -88,6 +89,7 @@ Connect this repository to Streamlit Cloud and deploy. Chromium will install aut
 - Visits each listing page to extract details such as title, price, seller info, and vehicle attributes.
 - Saves results incrementally into a CSV file (flushes every 10 rows).
 - Updates the Streamlit UI with logs, KPIs, and CSV previews.
+
 
 
 
