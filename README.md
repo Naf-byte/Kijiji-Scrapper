@@ -42,12 +42,13 @@ _Add a screenshot here showing the log panel with scraping progress._
 ```bash
 git clone https://github.com/your-username/kijiji-scrapper.git
 cd kijiji-scrapper
-```bash
+
 
 2. Install dependencies
 Python 3.9+ is recommended.
 
 # (optional) create and activate a virtual environment
+```bash
 python -m venv .venv
 source .venv/bin/activate  # Linux/Mac
 .venv\Scripts\activate     # Windows
@@ -110,5 +111,6 @@ Visits each listing page to extract details such as title, price, seller info, a
 Saves results incrementally into a CSV file (flushes every 10 rows).
 
 Updates the Streamlit UI with logs, KPIs, and CSV previews.
+
 
 
