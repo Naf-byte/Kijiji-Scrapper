@@ -57,10 +57,10 @@ source .venv/bin/activate  # Linux/Mac
 **install Python requirements.**
 pip install -r requirements.txt
 
-Install Playwright browsers:
+**Install Playwright browsers:**
 playwright install chromium
 
-##For Linux environments, install required system libraries:
+**##For Linux environments, install required system libraries:**
 sudo apt-get install -y libnss3 libnspr4 libatk1.0-0 libatk-bridge2.0-0 \
     libdrm2 libxkbcommon0 libxcomposite1 libxdamage1 libxfixes3 libxrandr2 \
     libgbm1 libgtk-3-0 libpango-1.0-0 libasound2 libpangocairo-1.0-0 \
@@ -112,6 +112,7 @@ Visits each listing page to extract details such as title, price, seller info, a
 Saves results incrementally into a CSV file (flushes every 10 rows).
 
 Updates the Streamlit UI with logs, KPIs, and CSV previews.
+
 
 
 
