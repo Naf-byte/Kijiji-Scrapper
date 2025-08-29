@@ -45,9 +45,10 @@ cd kijiji-scrapper
 
 
 2. Install dependencies
+
 Python 3.9+ is recommended.
 
-# (optional) create and activate a virtual environment
+(Optional) create and activate a virtual environment:
 ```bash
 python -m venv .venv
 source .venv/bin/activate  # Linux/Mac
@@ -111,6 +112,7 @@ Visits each listing page to extract details such as title, price, seller info, a
 Saves results incrementally into a CSV file (flushes every 10 rows).
 
 Updates the Streamlit UI with logs, KPIs, and CSV previews.
+
 
 
 
