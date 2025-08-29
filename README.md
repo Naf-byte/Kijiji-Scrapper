@@ -52,36 +52,35 @@ python -m venv .venv
 source .venv/bin/activate  # Linux/Mac
 .venv\Scripts\activate     # Windows
 
-# install Python requirements
+## install Python requirements
 pip install -r requirements.txt
 
 Install Playwright browsers:
 playwright install chromium
 
-For Linux environments, install required system libraries:
+##For Linux environments, install required system libraries:
 sudo apt-get install -y libnss3 libnspr4 libatk1.0-0 libatk-bridge2.0-0 \
     libdrm2 libxkbcommon0 libxcomposite1 libxdamage1 libxfixes3 libxrandr2 \
     libgbm1 libgtk-3-0 libpango-1.0-0 libasound2 libpangocairo-1.0-0 \
     libcairo2 libx11-6 libx11-xcb1 libxcb1 libxext6 libxss1 libcups2 \
     libdbus-1-3 libatspi2.0-0
 
-3. Run locally
+### 3. Run locally
 streamlit run app.py
 
 Deployment (Streamlit Cloud)
 
-This repository is configured for Streamlit Community Cloud
-:
+This repository is configured for Streamlit Community Cloud:
 
-packages.txt provides required Chromium system libraries.
+- ##packages.txt provides required Chromium system libraries.
 
-requirements.txt lists Python dependencies.
+- ##requirements.txt lists Python dependencies.
 
-streamlit/config.toml contains UI theme settings.
+- ##streamlit/config.toml contains UI theme settings.
 
 Connect this repository to Streamlit Cloud and deploy. Chromium will install automatically on first run.
 
-Project Structure
+##Project Structure
 kijiji-scrapper/
 │
 ├── app.py                 # Main Streamlit application
@@ -111,3 +110,4 @@ Visits each listing page to extract details such as title, price, seller info, a
 Saves results incrementally into a CSV file (flushes every 10 rows).
 
 Updates the Streamlit UI with logs, KPIs, and CSV previews.
+
