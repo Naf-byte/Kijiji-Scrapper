@@ -38,7 +38,12 @@ It extracts fresh listings (cars, motorcycles, heavy equipment, etc.) and saves 
 
 
 **Live Logs**  
-_Add a screenshot here showing the log panel with scraping progress._
+
+<img width="1149" height="719" alt="image" src="https://github.com/user-attachments/assets/2717be6c-17cf-44ff-b5dd-538618a3a08d" />
+
+<img width="1152" height="594" alt="image" src="https://github.com/user-attachments/assets/23eb078b-2265-4e23-b057-dc2271d65073" />
+
+
 
 ---
 
@@ -96,6 +101,7 @@ Connect this repository to Streamlit Cloud and deploy. Chromium will install aut
 - Visits each listing page to extract details such as title, price, seller info, and vehicle attributes.
 - Saves results incrementally into a CSV file (flushes every 10 rows).
 - Updates the Streamlit UI with logs, KPIs, and CSV previews.
+
 
 
 
