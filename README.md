@@ -79,45 +79,12 @@ This repository is configured for Streamlit Community Cloud:
 - **streamlit/config.toml** contains UI theme settings.
 
 Connect this repository to Streamlit Cloud and deploy. Chromium will install automatically on first run.
+---
 
-##Project Structure
-kijiji-scrapper/
-│
-├── app.py                 # Main Streamlit application
-├── packages.txt           # Linux system dependencies (Playwright/Chromium)
-├── requirements.txt       # Python dependencies
-├── streamlit/config.toml  # Streamlit theme configuration
-└── README.md              # Project documentation
-How It Works
-Launches a headless Chromium browser with Playwright.
-
-Navigates Kijiji search result pages, filtering for fresh listings.
-
-Visits each listing page to extract details such as title, price, seller info, and vehicle attributes.
-
-Saves results incrementally into a CSV file (flushes every 10 rows).
-
-Updates the Streamlit UI with logs, KPIs, and CSV previews.
-
-How It Works
-
-Launches a headless Chromium browser with Playwright.
-
-Navigates Kijiji search result pages, filtering for fresh listings.
-
-Visits each listing page to extract details such as title, price, seller info, and vehicle attributes.
-
-Saves results incrementally into a CSV file (flushes every 10 rows).
-
-Updates the Streamlit UI with logs, KPIs, and CSV previews.
-
-
-
-
-
-
-
-
-
-
+### How It Works
+- Launches a headless Chromium browser with Playwright.
+- Navigates Kijiji search result pages, filtering for fresh listings.
+- Visits each listing page to extract details such as title, price, seller info, and vehicle attributes.
+- Saves results incrementally into a CSV file (flushes every 10 rows).
+- Updates the Streamlit UI with logs, KPIs, and CSV previews.
 
